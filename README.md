@@ -1,3 +1,17 @@
+Owen Plambeck Take Home Assignment for MaestroQA, Completed 11/29/2022. 
+
+
+In order to solve the concurrency issue presented in the files, I have implemented a locking
+mechanism using the provided database operations. My implementation uses a dictionary object 
+that acts as a key, in which threads can only run their workers if they have inserted their 
+instance of the key into the database. Each thread keeps trying to insert their version of 
+the key every retry interval, until it reaches the threshold in which it gives up. Once it is
+successfully inserted into the store, the worker runs its code, then deletes its lock object from the store, 
+so another thread and insert and run. If the thread crashes while it holds the object, the object 
+is also deleted so a different thread can insert and complete. 
+
+
+
 # InterviewHandout
 
 ### Situation: 
